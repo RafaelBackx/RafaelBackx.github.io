@@ -107,8 +107,16 @@ article{
 footer{
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 10px;
     background-color:#3e4347 ;
+}
+footer #links{
+    padding: 10px;
+    display: flex;
+}
+#links i{
+    padding: 10px;
 }
 footer i{
     color: #0077B5;
