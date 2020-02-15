@@ -1,9 +1,11 @@
 let javaIcon = document.getElementById("java");
 let htmlIcon = document.getElementById("html");
-javaIcon.addEventListener('mouseenter',ColorImage,false);
-javaIcon.addEventListener('mouseleave',ChangeColor,false);
-htmlIcon.addEventListener('mouseenter',ColorImage,false);
-htmlIcon.addEventListener('mouseleave',ChangeColor,false);
+let divs = document.querySelectorAll('#competenties-grid div');
+for (let i=0;i<divs.length;i++){
+    let div = divs[i];
+    div.addEventListener('mouseenter',ColorImage,false);
+    div.addEventListener('mouseleave',ChangeColor,false);
+}
 
 function ColorImage(e){
     e.target.childNodes[0].src = 'images/'+e.target.id + '-icon-colored.png';
