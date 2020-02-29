@@ -4,6 +4,10 @@ a{
     text-align: center;
     display: block;
 }
+p{
+    text-align: left;
+    font-size: large;
+}
 div{
     line-height: 1.4;
     color: #000;
@@ -13,6 +17,19 @@ html{
     background-color: #ffffff;
     line-height: 5px;
     color: #ffffff;
+    scroll-behavior: smooth;
+}
+#topButton{
+    padding: 0;
+    margin: 0;
+    width: 66px;
+    height: 66px;
+    display: inline-block;
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    background-color: transparent;
+    border: none;
 }
 header{
     padding-bottom: 20px;
@@ -42,7 +59,8 @@ header{
 #navigation ul li a:hover{
     border-bottom: 5px solid #fff;
 }
-#intro{
+article{
+    color: #000;
     font-size: 20px;
     text-align: center;
     margin: auto;
@@ -53,6 +71,8 @@ header{
     width: 30vw;
     border-bottom: 2px solid #000208;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #foto img{
     width: 300px;
@@ -81,10 +101,6 @@ article{
 #competenties-grid{
     padding-top:5px;
     display: grid;
-    /* grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    row-gap: 5px;
-    column-gap: 5px; */
     grid-template-columns: 1f 1f 1fr;
     column-gap: 5px;
 }
@@ -93,10 +109,6 @@ article{
     align-items: center;
     padding: 10px;
 }
-#competenties-grid div:hover{
-    /* border: 1px solid #000; */
-    border-radius: 10px;
-} 
 #backend{
     grid-area:1/1/2/2;
 }
@@ -106,23 +118,38 @@ article{
 #web{
     grid-area:1/3/2/4;
 }
-/* #java{
-    grid-area:1/1/2/2;
+#Projecten section {
+    display: flex;
+    flex-direction: column;
 }
-#html{
-    grid-area:2/1/3/2;
+.project{
+    position: relative;
+    margin: 10px 0px 0px 0px;
+    border: 1px solid #000;
+    height: 35vh;
+    display: flex;
+    justify-content: stretch;
 }
-#sql{
-    grid-area:1/3/2/4;
+.project img{
+    position: relative;
+    width: 50%;
 }
-#css{
-    grid-area:2/2/3/3;
+.project > h1{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 5px;
+    left: 35vw;
 }
-#js{
-    grid-area:2/3/3/4;
+.project > p{
+    padding: 5px;
+    display: none;
+    position: absolute;
+    top: 25px;
+    left: 5px;
 }
-#python{
-    grid-area:1/2/2/3;
+/* .project img:hover{
+    filter: blur(5px);
 } */
 footer{
     display: flex;

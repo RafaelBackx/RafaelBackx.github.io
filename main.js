@@ -1,9 +1,8 @@
-let javaIcon = document.getElementById("java");
-let htmlIcon = document.getElementById("html");
 let divs = document.querySelectorAll('#competenties-grid div');
 let images =[];
-let colorIntervalId;
-let changeIntervalId;
+let colorIntervalId = 0;
+let changeIntervalId = 0;
+let id = 0;
 for (let i=0;i<divs.length;i++){
     let div = divs[i];
     console.log(div);
@@ -21,15 +20,16 @@ function colorImage(){
     console.log(images.length);
     if (images.length>0){
         let imagesrc = images[0].src;
+        imagesrc = imagesrc.replace("-icon",'-icon-colored')
         let child = images[0];
-        console.log(child);
-        let src = imagesrc.split('-icon');
-        child.src = src[0] + '-icon-colored' + src[1];
+        console.log(imagesrc);
+        child.src = imagesrc;
         images.splice(0,1);
         console.log(images.length);
     }else{
         clearImages();
         clearInterval(colorIntervalId);
+        colorIntervalId = 0;
     }
 }
 
@@ -46,12 +46,13 @@ function changeColor(){
     if (images.length>0){
         let imagesrc = images[images.length-1].src;
         let child = images[images.length-1];
-        let src = imagesrc.split('-icon-colored');
-        child.src = src[0] + '-icon' + src[1];
+        imagesrc = imagesrc.replace('-icon-colored','-icon');
+        child.src = imagesrc;
         images.splice(images.length-1,1);
     }else{
         clearImages();
         clearInterval(changeIntervalId);
+        changeIntervalId = 0;
     }
 }
 
@@ -64,5 +65,7 @@ function setImages(children){
 }
 
 function clearImages(){
-    images = [];
+    while (images.length>0){
+        changeColor();
+    }
 }
