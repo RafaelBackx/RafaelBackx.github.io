@@ -130,6 +130,9 @@ article{
     display: flex;
     justify-content: stretch;
 }
+#maze{
+    height: 50vh;
+}
 .project img{
     position: relative;
     width: 50%;
@@ -148,9 +151,15 @@ article{
     top: 25px;
     left: 5px;
 }
-/* .project img:hover{
-    filter: blur(5px);
-} */
+canvas{
+    border: 1px solid #000;
+    width: 100%;
+    height: 100%;
+}
+#canvas{
+    display: flex;
+    justify-content: space-between;
+}
 footer{
     display: flex;
     justify-content: center;

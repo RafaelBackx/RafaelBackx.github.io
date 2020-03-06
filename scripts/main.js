@@ -5,7 +5,6 @@ let changeIntervalId = 0;
 let id = 0;
 for (let i=0;i<divs.length;i++){
     let div = divs[i];
-    console.log(div);
     div.addEventListener('mouseenter',ColorImages,false);
     div.addEventListener('mouseleave',ChangeColors,false);
 }
@@ -17,15 +16,12 @@ function ColorImages(e){
 }
 
 function colorImage(){
-    console.log(images.length);
     if (images.length>0){
         let imagesrc = images[0].src;
         imagesrc = imagesrc.replace("-icon",'-icon-colored')
         let child = images[0];
-        console.log(imagesrc);
         child.src = imagesrc;
         images.splice(0,1);
-        console.log(images.length);
     }else{
         clearImages();
         clearInterval(colorIntervalId);
