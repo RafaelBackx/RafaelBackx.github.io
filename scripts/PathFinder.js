@@ -1,3 +1,5 @@
+let clearPathfinderbutton = document.querySelector('input[type="button"][value="reset pathfinder"]');
+clearPathfinderbutton.addEventListener('click',clearpathfinder,false);
 cnv = document.getElementById('pathfinder');
 context = cnv.getContext('2d');
 let opencolor = '#f00';
@@ -13,7 +15,7 @@ mazeSetup();
 let start = maze[0][0];
 start.color = '#aaa';
 let end = maze[rowz-1][cols-1];
-end.color = '#aaa'
+// end.color = '#aaa'
 draw();
 open.push(start);
 let astarid = setInterval(astar,100);
@@ -61,6 +63,7 @@ function astar(){
     if (open.length > 0){
         let current = getmin(open);
         if (current === end){
+            console.log("found the end");
             traceback(current);
             clearInterval(astarid);
         }
@@ -139,4 +142,21 @@ function getNeighboursAstar(row,col){
         }
     }
     return astarneighbours;
+}
+
+function clearpathfinder(){
+    for (r=0;r<rowz;r++){
+        for (c=0;c<cols;c++){
+            maze[r][c] = {'x':c*width,'y':r*width,'f':0,'g':0,'h':0,'obstruction':false,'color':'#FFF','parent':null};
+        }
+    }
+    generateRandomObstruction(0.25);
+    start = maze[0][0];
+    start.color = '#aaa';
+    end = maze[rowz-1][cols-1];
+    open = [];
+    closed = [];
+    open.push(start);
+    draw();
+    astarid = setInterval(astar,100);
 }

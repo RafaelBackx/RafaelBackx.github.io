@@ -1,15 +1,16 @@
+let clearMazebutton = document.querySelector('input[type="button"][value="reset maze"]');
+clearMazebutton.addEventListener('click',clearmaze,false);
 let canvas = document.getElementById("mazegenerator");
 let ctx = canvas.getContext('2d');
 let grid;
 let size = 10;
 let rows = Math.floor(canvas.width/size);
 let columns = Math.floor(canvas.height/size);
-let looping = false;
 gridsetup(10,10);
 let current = grid[0][0];
 drawMaze();
 current.obstruction=false;
-let loopid = setInterval(loop,100)
+let loopid = setInterval(loop,50)
 
 function gridsetup(){
     grid = []
@@ -58,7 +59,6 @@ function getUnivisitedNeighbours(row,col){
 }
 
 function loop(){
-    console.log('looping');
     current.visited = true;
     currentNeighbours = getUnivisitedNeighbours(current.x / size, current.y / size);
     if (currentNeighbours.length === 0){
@@ -78,7 +78,6 @@ function backTrack(current){
         drawMaze();
         if (current.parent == null){
             console.log('maze completed');
-            looping =false;
             clearInterval(loopid);
         }
         current = current.parent;
@@ -108,4 +107,14 @@ function removeWalls(current,target){
     target.obstruction = false;
     ctx.clearRect(0,0,canvas.width,canvas.height);
     drawMaze();
+}
+
+function clearmaze(){
+    for (let r=0;r<rows;r++){
+        for (let c=0;c<columns;c++){
+            grid[r][c] = {'x':r*size,'y':c*size,'visited': false, 'obstruction':true,'color':'#123456','parent': null};
+        }
+    }
+    drawMaze();
+    loopid = setInterval(loop,50);
 }
