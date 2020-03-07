@@ -1,4 +1,4 @@
-let clearMazebutton = document.querySelector('input[type="button"][value="reset maze"]');
+let clearMazebutton = document.querySelector('input[type="button"][value="reset maze generator"]');
 clearMazebutton.addEventListener('click',clearmaze,false);
 let canvas = document.getElementById("mazegenerator");
 let ctx = canvas.getContext('2d');
@@ -17,7 +17,7 @@ function gridsetup(){
     for (let r = 0;r<rows;r++){
         grid.push([])
         for (let c = 0; c<columns;c++){
-            grid[r].push({'x':r*size,'y':c*size,'visited': false, 'obstruction':true,'color':'#123456','parent': null})
+            grid[r].push({'x':r*size,'y':c*size,'visited': false, 'obstruction':true,'color':'#000','parent': null})
         }
     }
     console.log(grid);
@@ -27,12 +27,14 @@ function drawMaze(){
     for (let r = 0;r<rows;r++){
         for (let c = 0; c<columns;c++){
             let info = grid[r][c];
-            let color = info.obstruction ? "#123456" : '#888';
+            let color = info.obstruction ? "#000" : '#FFF';
             if (grid[r][c] === current) color = '#f00';
             ctx.beginPath()
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = '#000';
+            ctx.strokeRect(info.x,info.y,size,size);
             ctx.fillStyle = color;
-            ctx.rect(info.x,info.y,size,size);
-            ctx.fill()
+            ctx.fillRect(info.x,info.y,size,size);
             ctx.closePath();
         }
     }
@@ -112,7 +114,7 @@ function removeWalls(current,target){
 function clearmaze(){
     for (let r=0;r<rows;r++){
         for (let c=0;c<columns;c++){
-            grid[r][c] = {'x':r*size,'y':c*size,'visited': false, 'obstruction':true,'color':'#123456','parent': null};
+            grid[r][c] = {'x':r*size,'y':c*size,'visited': false, 'obstruction':true,'color':'#000','parent': null};
         }
     }
     drawMaze();

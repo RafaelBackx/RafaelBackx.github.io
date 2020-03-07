@@ -12,7 +12,7 @@ for (let i=0;i<divs.length;i++){
 function ColorImages(e){
     clearImages();
     setImages(e.target.children)
-    colorIntervalId = setInterval(colorImage,70);
+    colorIntervalId = setInterval(colorImage,80);
 }
 
 function colorImage(){

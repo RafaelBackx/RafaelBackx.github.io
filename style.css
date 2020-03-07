@@ -125,27 +125,29 @@ article{
 .project{
     position: relative;
     margin: 10px 0px 0px 0px;
-    border: 1px solid #000;
     height: 35vh;
     display: flex;
     justify-content: stretch;
 }
 #maze{
-    height: 50vh;
+    height: 55vh;
     display:grid;
-    text-align: center;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 2fr 1fr;
 }
 #maze h1{
     display: block;
-    grid-area : 1/1/2/2;
+    grid-area : 1/1/2/-1;
+}
+#canvas:nth-child(1){
+    margin-right: 1em;
 }
 #buttons{
     display: flex;
     justify-content: space-around;
     grid-area: 3/1/4/2;
 }
+
 .project img{
     position: relative;
     width: 50%;
@@ -167,12 +169,32 @@ article{
 canvas{
     width: 100%;
     height: 100%;
+    border: 1px solid #000;
 }
 #canvas{
     grid-area: 2/1/3/2;
     display: flex;
     justify-content: space-between;
 }
+#headers{
+    font-size: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+input[type="button"]{
+    font-size: 16px;
+    margin: 1em 0 1em 0;
+    border : 4px solid #000;
+    color:#000;
+    background-color: #fff;  
+    border-radius: 6px;
+    transition: all 0.3 ease 0s;
+}input[type="button"]:hover {
+    border : 4px solid #3f688a;
+    border-radius: 50px;
+    transition: all 0.3 ease 0s;
+}
+
 footer{
     display: flex;
     justify-content: center;

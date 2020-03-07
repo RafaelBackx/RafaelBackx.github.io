@@ -2,23 +2,25 @@ let clearPathfinderbutton = document.querySelector('input[type="button"][value="
 clearPathfinderbutton.addEventListener('click',clearpathfinder,false);
 cnv = document.getElementById('pathfinder');
 context = cnv.getContext('2d');
-let opencolor = '#f00';
-let pathcolor = '#0f0';
+let opencolor = '#e94949';
+let pathcolor = '#4744eb';
 let obstructionColor = "#000";
 let maze = []
 let open =[]
 let closed =[]
-let width = 15;
+let width = 10;
 let rowz = Math.floor(cnv.height/width);
 let cols = Math.floor(cnv.width/width);
 mazeSetup();
 let start = maze[0][0];
-start.color = '#aaa';
+start.obstruction = false;
+start.color = '#0f0';
 let end = maze[rowz-1][cols-1];
-// end.color = '#aaa'
+end.obstruction = false;
+ end.color = '#f00'
 draw();
 open.push(start);
-let astarid = setInterval(astar,100);
+let astarid = setInterval(astar,50);
 
 function mazeSetup(){
     for (r=0;r<rowz;r++){
@@ -145,6 +147,7 @@ function getNeighboursAstar(row,col){
 }
 
 function clearpathfinder(){
+    clearInterval(astarid);
     for (r=0;r<rowz;r++){
         for (c=0;c<cols;c++){
             maze[r][c] = {'x':c*width,'y':r*width,'f':0,'g':0,'h':0,'obstruction':false,'color':'#FFF','parent':null};
