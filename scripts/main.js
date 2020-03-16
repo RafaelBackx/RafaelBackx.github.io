@@ -1,4 +1,4 @@
-let divs = document.querySelectorAll('#competenties-grid div');
+let divs = document.querySelectorAll('#competenties-grid>div');
 let images =[];
 let colorIntervalId = 0;
 let changeIntervalId = 0;
@@ -10,8 +10,11 @@ for (let i=0;i<divs.length;i++){
 }
 
 function ColorImages(e){
+    console.log(e.target);
     clearImages();
-    setImages(e.target.children)
+    setImages(e.target);
+    console.log(images);
+    console.log(typeof images);
     colorIntervalId = setInterval(colorImage,80);
 }
 
@@ -31,7 +34,7 @@ function colorImage(){
 
 function ChangeColors(e){
     clearImages();
-    setImages(e.target.children)
+    setImages(e.target);
     while(images.length>0){
         changeColor();
     }
@@ -53,11 +56,12 @@ function changeColor(){
 }
 
 function setImages(children){
-    for (let i=0;i<children.length;i++){
-        if (children[i].src != undefined){
-            images.push(children[i]);
-        }
-    }
+    images = Array.from(children.getElementsByTagName('img'));
+    // for (let i=0;i<children.length;i++){
+    //     if (children[i].src != undefined){
+    //         images.push(children[i]);
+    //     }
+    // }
 }
 
 function clearImages(){

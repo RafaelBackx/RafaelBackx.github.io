@@ -2,12 +2,14 @@ let clearPathfinderbutton = document.querySelector('input[type="button"][value="
 clearPathfinderbutton.addEventListener('click',clearpathfinder,false);
 cnv = document.getElementById('pathfinder');
 context = cnv.getContext('2d');
+canvasboundings = cnv.getBoundingClientRect();
 let opencolor = '#e94949';
 let pathcolor = '#4744eb';
 let obstructionColor = "#000";
 let maze = []
 let open =[]
 let closed =[]
+let mousedown = false;
 let width = 10;
 let rowz = Math.floor(cnv.height/width);
 let cols = Math.floor(cnv.width/width);
@@ -17,7 +19,7 @@ start.obstruction = false;
 start.color = '#0f0';
 let end = maze[rowz-1][cols-1];
 end.obstruction = false;
- end.color = '#f00'
+end.color = '#f00'
 draw();
 open.push(start);
 let astarid = setInterval(astar,50);
@@ -29,7 +31,7 @@ function mazeSetup(){
             maze[r].push({'x':c*width,'y':r*width,'f':0,'g':0,'h':0,'obstruction':false,'color':'#FFF','parent':null})
         }
     }
-    generateRandomObstruction(0.25);
+    generateRandomObstruction(0.35);
 }
 
 function generateRandomObstruction(percentage){
@@ -153,13 +155,16 @@ function clearpathfinder(){
             maze[r][c] = {'x':c*width,'y':r*width,'f':0,'g':0,'h':0,'obstruction':false,'color':'#FFF','parent':null};
         }
     }
-    generateRandomObstruction(0.25);
+    generateRandomObstruction(0.35);
     start = maze[0][0];
-    start.color = '#aaa';
+    start.obstruction = false;
+    start.color = '#0f0';
     end = maze[rowz-1][cols-1];
+    end.obstruction = false;
+    end.color = '#f00'
     open = [];
     closed = [];
     open.push(start);
     draw();
-    astarid = setInterval(astar,100);
+    astarid = setInterval(astar,50);
 }
