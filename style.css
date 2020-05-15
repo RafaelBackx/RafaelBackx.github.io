@@ -187,7 +187,7 @@ article{
 .project{
     position: relative;
     margin: 10px 0px 0px 0px;
-    /* height: 35vh; */
+    height: 45vh; 
     display: flex;
     flex-direction: column;
     /* justify-content: stretch; */
@@ -256,10 +256,6 @@ canvas{
 }
 #project-grid:nth-child(4){
     grid-area: 2/2/3/3;
-}
-.project
-{
-    border: 1px solid black;
 }
 /*================================================================ temporary grid*/
 #headers{
