@@ -20,7 +20,6 @@ function gridsetup(){
             grid[r].push({'x':r*size,'y':c*size,'visited': false, 'obstruction':true,'color':'#000','parent': null})
         }
     }
-    console.log(grid);
 }
 
 function drawMaze(){
@@ -77,11 +76,10 @@ function backTrack(current){
     let neighbours = getUnivisitedNeighbours(current.x/size,current.y/size);
     while (neighbours.length === 0){
         ctx.clearRect(0,0,canvas.width,canvas.height);
-        drawMaze();
         if (current.parent == null){
-            console.log('maze completed');
             clearInterval(loopid);
         }
+        drawMaze();
         current = current.parent;
         neighbours = getUnivisitedNeighbours(current.x/size,current.y/size);
     }

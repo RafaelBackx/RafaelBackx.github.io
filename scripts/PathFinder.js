@@ -63,11 +63,9 @@ function draw(){
 }
 
 function astar(){
-    console.log('looping');
     if (open.length > 0){
         let current = getmin(open);
         if (current === end){
-            console.log("found the end");
             traceback(current);
             clearInterval(astarid);
         }
@@ -98,7 +96,6 @@ function astar(){
             }
         }
     }else{
-        console.log('no path found');
         clearInterval(astarid)
     }
     draw()
@@ -112,7 +109,6 @@ function traceback(current){
         current = current.parent;
     }
     draw();
-    console.log('path found');
     return path;
 }
 
