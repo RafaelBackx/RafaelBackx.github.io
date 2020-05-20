@@ -30,9 +30,6 @@
     <a id="topButton" href="#top">
         <img src="images/scrollToTop.png" alt="image with button to scroll to the top of the page">
     </a>
-    <!-- <button id="Top">
-        <img src="images/scrollToTop.png" alt="image with button to scroll to the top of the page">
-    </button> -->
     <div class="item" id="OverMij">
         <h1 class="border">Over mij</h1>
         <p>
@@ -61,16 +58,20 @@
             </div>
         </div>
 
-        <ul>
-            <li>Gegevens behandelen</li>
-            <li>Analyseren</li>
-            <li>Oplossingen uitwerken</li>
-            <li>Beheren</li>
-            <li>Projectmatig werken</li>
-            <li>Communiceren</li>
-            <li>Initiaf nemen</li>
-            <li>Kwaliteitsvol handelen</li>
-        </ul>
+        <div class="competenties">
+            <button class="competentie-button" id="1">Gegevens behandelen</button>
+            <button class="competentie-button" id="2">Analyseren</button>
+            <button class="competentie-button" id="3">Oplossingen uitwerken</button>
+            <button class="competentie-button" id="4">Beheren</button>
+            <button class="competentie-button" id="5">Projectmatig werken</button>
+            <button class="competentie-button" id="6">Communiceren</button>
+            <button class="competentie-button" id="7">Eigen gedrag aanpassen</button>
+            <button class="competentie-button" id="8">Kwaliteitsvol handelen</button>
+        </div>
+
+        <div id="table">
+
+        </div>
 
     </div>
 
@@ -95,21 +96,22 @@
                 <div class="project">
                     <h1>Istar</h1>
                     <img src="images/projects/Istar.JPG" alt="">
-                    <p>Istar een website gemaakt met java waar collega's elkaar kunnen belonen voor een goed uitgevoerde taak</p>
+                    <p>Istar een website gemaakt met java en postgresql waar collega's elkaar kunnen belonen voor een goed uitgevoerde taak.</p>
                 </div>
                 <div class="project">
-                    <h1>chat app</h1>
-                    <img src="images/projects/chatapp.JPG" alt="">
-                    <p>Een ajax website gemaakt met java en javascript waar vrienden met elkaar kunnen chatten hier heb ik gebruik gemaakt van polling en pushing</p>
+                    <h1>Chat app</h1>
+                    <img src="images/projects/chatapp_demo.png" alt="">
+                    <p>Een ajax website gemaakt met java en javascript waar vrienden rustig met elkaar kunnen chatten hier heb ik gebruik gemaakt van polling en pushing</p>
                 </div>
                 <div class="project">
                     <h1>MIDI visualizer</h1>
-                    <img src="images/projects/12-notes.bmp" alt="">
+                    <img src="images/projects/midi_example.bmp" alt="">
                     <p>Een c++ applicatie die midi files omzet naar een visualisatie van de noten van het liedje</p>
                 </div>
                 <div class="project">
-                    <h1>angular</h1>
-                    <p>wow Angular cool cool cool cool cool cool</p>
+                    <h1>Taskmanager</h1>
+                    <img src="images/projects/task_manager.png" alt="">
+                    <p>Deze taskmanager is een website gemaakt in java met spring boot waar mensen hun taken op een orderlijke manier kunnen bijhouden.</p>
                 </div>
             </div>  
         </section>
@@ -137,7 +139,7 @@
         <a href="https://icons8.com/">icons8</a>  
     </footer>
     <script src="scripts/main.js"></script>
-    <!-- <script src="scripts/project.js"></script> -->
+    <script src="scripts/competenties.js"></script>
     <script src="scripts/mazeGenerator.js"></script>
     <script src="scripts/PathFinder.js"></script>
 </body>
