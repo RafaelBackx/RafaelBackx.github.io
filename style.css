@@ -186,8 +186,7 @@ article{
     flex-direction: column;
 }
 .project{
-    margin: 10px 0px 0px 0px;
-    height: 45vh; 
+    margin: 10px 0px 0px 1em;
     display: flex;
     flex-direction: column;
     /* justify-content: stretch; */
@@ -216,11 +215,12 @@ article{
     top: 5px;
     left: 35vw;
 }
-.project > p{
-    padding: 5px;
+.inner-project > p{
+    margin: 5px;
 }
 .project img{
-    width: 100%;
+    max-width: 50%;
+    max-width: 50%;
     min-height: 330px;
 }
 canvas{
@@ -235,12 +235,14 @@ canvas{
 }
 /*================================================================ temporary grid*/
 #project-grid{
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    /* display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     row-gap: 1em;
     column-gap: 1em;
-    margin-bottom: 3em;
+    margin-bottom: 3em; */
 }
 #project-grid:nth-child(1){
     grid-area: 1/1/2/2;
@@ -317,6 +319,11 @@ table td{
     margin: 1em;
 }
 
+.inner-project
+{
+    display: flex;
+}
+
 /*Table style and button============================================================*/
 #headers{
     font-size: 20px;
@@ -378,6 +385,10 @@ footer i{
         border-left: 5px solid #fff;
         border-bottom : none;
         background-color: #696f74;
+    }
+
+    .project img{
+        max-height: 250px;
     }
 
 }
